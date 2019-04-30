@@ -29,6 +29,17 @@
 		</button>
         
 	</form>
+	<!-- Result Display-->
+	{% if chart_html_array %}
+		<section class="section section-solutions-about grey darken-2">
+			<div class="container white-text">
+		  	<h6>Charts:</h6>
+		  	{% for chart_html in chart_html_array %}
+		    {{ chart_html|safe }}
+		  	{% endfor %}
+			</div>
+		</section>
+	{% endif %}
 	</main>
 
 	<footer class="page-footer">

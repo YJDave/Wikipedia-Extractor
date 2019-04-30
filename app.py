@@ -29,6 +29,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/extract', methods=['POST'])
+def extract_data():
+    if request.method == "POST":
+        chart_html_array = extract_subsection_content(url, sub_section, text_file_name)
+
+    return render_template('index.html', chart_html_array=chart_html_array)
+
 # To convert unicode to clean string and remove punctuations
 def clean_str(x):
     # To change from unicode to string
