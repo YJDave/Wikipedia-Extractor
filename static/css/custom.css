@@ -3,8 +3,8 @@
 	width: Xu;
 	height: Yu;
 	position: absolute;
-	top: 50%;
-	left: 5%;
+	top: 15%;
+	left: 15%;
 	margin-left: -(X/2)u;
 	margin-top: -(Y/2)u;
 }
@@ -12,4 +12,18 @@
 #extract_form .btn {
 	background-color: #AAB7B8;
 	color: #2E4053;
+}
+
+.page-footer {
+	background-color: black;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
 }
