@@ -17,7 +17,6 @@ from pyspark import SparkContext
 url = 'https://en.wikipedia.org/wiki/Machine_learning'
 sub_section = "Theory"
 text_file_name = "text-data.txt"
-word_file_name = "word-count-data.txt"
 
 ### Functions
 
