@@ -23,16 +23,10 @@
 	</header>
 
 	<main>
-	<form id="extract_form" method="POST" action="/extract">
-    	<button class="btn waves-effect waves-light btn-large" type="submit" name="action">Extract
-		    <i class="material-icons right">send</i>
-		</button>
-        
-	</form>
 	<!-- Result Display-->
 	{% if chart_html_array %}
-		<section class="section section-solutions-about grey darken-2">
-			<div class="container white-text">
+		<section class="section section-solutions-about">
+			<div class="container">
 		  	<h6>Charts:</h6>
 		  	{% for chart_html in chart_html_array %}
 		    {{ chart_html|safe }}
@@ -40,6 +34,11 @@
 			</div>
 		</section>
 	{% endif %}
+	<form id="extract_form" method="POST" action="/extract">
+		<button class="btn waves-effect waves-light btn-large" type="submit" name="action">Extract
+		    <i class="material-icons right">send</i>
+		</button>
+	</form>
 	</main>
 
 	<footer class="page-footer">

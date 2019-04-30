@@ -3,8 +3,8 @@
 	width: Xu;
 	height: Yu;
 	position: absolute;
-	top: 15%;
-	left: 15%;
+	padding-top: 50px;
+	padding-left: 235px;
 	margin-left: -(X/2)u;
 	margin-top: -(Y/2)u;
 }
