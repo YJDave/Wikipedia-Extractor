@@ -23,3 +23,5 @@ htmlcov/
 .coverage.*
 *,cover
 
+# Ignore file which is used to store text data
+text-data.txt

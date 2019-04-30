@@ -12,6 +12,7 @@ import re, string
 from pyspark import SparkContext
 
 ### Variables
+# Note: Don't forget to update .gitignore, if you change text_file_name variable.
 
 url = 'https://en.wikipedia.org/wiki/Machine_learning'
 sub_section = "Theory"
