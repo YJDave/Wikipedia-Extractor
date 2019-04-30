@@ -1,25 +1,26 @@
-### Clone repository
+#### Clone repository
 
 ```bash
-	git clone ....
-	cd Wikipedia_Extractor
+git clone https://github.com/YJDave/Wikipedia-Extractor
+cd Wikipedia_Extractor
 ```
 
-### Create virtual environment
+#### Create virtual environment
 
 ```bash
-	virtualenv adhoc_env -p python3
-	source adhoc_env/bin/activate
-	cd Wikipedia_Extractor
-	pip install -r requirements.txt
+virtualenv adhoc_env -p python3
+source adhoc_env/bin/activate
+cd Wikipedia_Extractor
+pip install -r requirements.txt
 ```
-NOTE: Do not create virtual environment inside project repository.
+**NOTE**: Do not create virtual environment inside project repository.
 
 
-### Run the application
+#### Run the application
 ```bash
-	python app.py
+python app.py
 ```
+
 
 <!-- ### Resources used
 
