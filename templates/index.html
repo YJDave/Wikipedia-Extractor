@@ -1,1 +1,25 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Wikipedia Extractor</title>
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="static/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="static/css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+	<form id="extract_form" method="POST" action="/extract">
+    	<button class="btn waves-effect waves-light btn-large" type="submit" name="action">Extract
+		    <i class="material-icons right">send</i>
+		</button>
+        
+	</form>
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="static/js/materialize.min.js"></script>
+</body>
+</html>
