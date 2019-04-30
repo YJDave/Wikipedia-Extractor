@@ -1,5 +1,9 @@
 ### Imports
 
+# Flask imports
+from __future__ import unicode_literals
+from flask import Flask,render_template,url_for,request
+
 # To make HTTP request to the Wikipedia article
 import urllib.request
 # To beautify the content and extract data from it
@@ -17,8 +21,13 @@ from pyspark import SparkContext
 url = 'https://en.wikipedia.org/wiki/Machine_learning'
 sub_section = "Theory"
 text_file_name = "text-data.txt"
+app = Flask(__name__)
 
 ### Functions
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 # To convert unicode to clean string and remove punctuations
 def clean_str(x):
@@ -72,4 +81,5 @@ def extract_subsection_content(url, sub_section, text_file_name):
 
 ###
 
-extract_subsection_content(url, sub_section, text_file_name)
+if __name__ == '__main__':
+    app.run()
