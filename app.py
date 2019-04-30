@@ -44,7 +44,7 @@ title = soup.find("h1", {"id": "firstHeading"})
 # Will take the Machine Learning URL 
 p = wikipedia.page(title.text)
 
-# Will find the "Theory" subsection from the given Wikipedia article
+# Will find the subsection from the given article
 subsection_content = p.section(sub_section)
 
 # print(subsection_content)
@@ -56,7 +56,7 @@ sc = SparkContext("local", "WikipediaExtractor App")
 
 text_file_content = sc.textFile(text_file_name)
 
-### Read the wikipedia content file and count words from it below:
+### Read the content of file and count words from it below:
 
 non_empty_text = text_file_content.filter(lambda x: len(x) > 0)
 words = non_empty_text.flatMap(lambda x: clean_str(x).split(' '))
