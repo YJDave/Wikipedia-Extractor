@@ -13,7 +13,7 @@ import wikipedia
 
 # For word count using PySpark
 import re, string
-from pyspark import SparkContext
+from pyspark import SparkConf, SparkContext
 
 ### Variables
 # Note: Don't forget to update .gitignore, if you change text_file_name variable.
@@ -74,7 +74,8 @@ def extract_subsection_content(url, sub_section, text_file_name):
     file.write(subsection_content)
     file.close()
 
-    sc = SparkContext("local", "WikipediaExtractor App")
+    conf = SparkConf().setMaster("local").setAppName("WikipediaExtraction")
+    sc =  SparkContext.getOrCreate(conf=conf)
 
     text_file_content = sc.textFile(text_file_name)
 
