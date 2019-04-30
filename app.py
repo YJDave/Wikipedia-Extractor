@@ -18,6 +18,22 @@ sub_section = "Theory"
 text_file_name = "text-data.txt"
 word_file_name = "word-count-data.txt"
 
+### Functions
+
+# To convert unicode to clean string and remove punctuations
+def clean_str(x):
+    # To change from unicode to string
+    converted = x.encode('utf-8')
+
+    # To lowercase letters
+    lowercased_str = x.lower()
+
+    # Remove all the punctuations
+    clean_str = lowercased_str.translate(str.maketrans('', '', string.punctuation))
+    # print("Clean str ", clean_str)
+    return clean_str
+
+
 # Extract HTML content from given url
 html = urllib.request.urlopen(url)
 # Beautify the HTML content
@@ -43,7 +59,7 @@ text_file_content = sc.textFile(text_file_name)
 ### Read the wikipedia content file and count words from it below:
 
 non_empty_text = text_file_content.filter(lambda x: len(x) > 0)
-words = non_empty_text.flatMap(lambda x: x.split(' '))
+words = non_empty_text.flatMap(lambda x: clean_str(x).split(' '))
 word_count = words.map(lambda x:(x, 1)).reduceByKey(lambda x, y: x + y) \
                   .map(lambda x: (x[1], x[0])) \
                   .sortByKey(False)
