@@ -45,19 +45,24 @@ def clean_str(x):
 
 def extract_subsection_content(url, sub_section, text_file_name):
     # Extract HTML content from given url
+    print("Fetching html data from URL..")
     html = urllib.request.urlopen(url)
     # Beautify the HTML content
+    print("clean data with BeautifulSoup...")
     soup = BeautifulSoup(html, features="html.parser")
 
     title = soup.find("h1", {"id": "firstHeading"})
 
-    # Will take the Machine Learning URL 
+    # Will take the Machine Learning URL
+    print("Get wikipedia page...")
     p = wikipedia.page(title.text)
 
     # Will find the subsection from the given article
+    print("Get content of subsection...")
     subsection_content = p.section(sub_section)
 
     # print(subsection_content)
+    print("Store result in file...")
     file = open(text_file_name, "w")
     file.write(subsection_content)
     file.close()
@@ -68,16 +73,18 @@ def extract_subsection_content(url, sub_section, text_file_name):
 
     ### Read the content of file and count words from it below:
 
+    print("Clearning data and analysing data using PySpark...")
     non_empty_text = text_file_content.filter(lambda x: len(x) > 0)
     words = non_empty_text.flatMap(lambda x: clean_str(x).split(' '))
     word_count = words.map(lambda x:(x, 1)).reduceByKey(lambda x, y: x + y) \
                       .map(lambda x: (x[1], x[0])) \
                       .sortByKey(False)
 
+    result_words = [];
     for word in word_count.collect():
-        print(word)
+        result_words.append(word)
 
-    return word_count
+    return result_words
 
 ###
 
